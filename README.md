@@ -1,4 +1,4 @@
-# LoginForm
+# Zodiac Horoscope
 
 Zodiac Horoscope is a study project that I created to learn Android Studio and XML. It was assigned to me by RIIS.
 
