@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.uwindsor.zodiachoroscope.data.ZodiacItem
 import edu.uwindsor.zodiachoroscope.databinding.ActivityMainBinding
-
-class MainActivity : AppCompatActivity() {
+private const val TAG = "MainActivity"
+class MainActivity : AppCompatActivity(), ZodiacListFragment.Callbacks {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,5 +27,14 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.main_container, fragment)
                 .commit()
         }
+    }
+
+    override fun onZodiacSelected(signID: Int) {
+        val fragment = ZodiacFragment.newInstance(signID)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

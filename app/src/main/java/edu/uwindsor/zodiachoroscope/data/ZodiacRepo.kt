@@ -1,4 +1,4 @@
-package edu.uwindsor.zodiachoroscope
+package edu.uwindsor.zodiachoroscope.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -14,7 +14,7 @@ class ZodiacRepo private constructor(context: Context){
         context.applicationContext,
         ZodiacDatabase::class.java,
         DATABASE_NAME
-    ).fallbackToDestructiveMigration().createFromAsset("database/$DATABASE_NAME").build()
+    ).createFromAsset("database/$DATABASE_NAME").build()
 
     private val zodiacDao = db.zodiacDao()
 
